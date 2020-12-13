@@ -202,6 +202,15 @@ function getSuggestionComponent() {
           return suggestion.value.toLowerCase()
             .indexOf(mentionText && mentionText.toLowerCase()) >= 0;
         });
+      this.filteredSuggestions = this.sortSuggestions(this.filteredSuggestions, mentionText);
+    }
+
+    sortSuggestions = (suggestions, mentionText) => {
+      return suggestions.sort((a,b) => {
+        if(a.text.startsWith(mentionText)) return 1;
+        if(b.text.startsWith(mentionText)) return -1;
+        return a>b;
+      })
     }
 
     addMention = () => {
