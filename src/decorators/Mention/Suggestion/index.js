@@ -235,7 +235,7 @@ function getSuggestionComponent() {
               style={this.state.style}
               ref={this.setDropdownReference}
             >
-              {this.filteredSuggestions.map((suggestion, index) =>
+              {this.filteredSuggestions.slice(0, 100).map((suggestion, index) =>
                 (<span
                   key={index}
                   spellCheck={false}
